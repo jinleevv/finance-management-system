@@ -1,0 +1,13 @@
+backend/__pycache__
+
+# Storage for pictures
+media
+
+myapi/__pycache__
+myapi/migrations
+
+venv
+
+.env
+
+db.sqlite3
