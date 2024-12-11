@@ -16,6 +16,7 @@ import { toast } from "sonner";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
+import JSZip from "jszip";
 
 export function DownloadTransaction() {
   const { clientI } = useHooks();
@@ -110,6 +111,7 @@ export function DownloadTransaction() {
               },
               {}
             );
+            const zip = new JSZip();
 
             // Iterate over each group and create a separate Excel file
             Object.keys(groupedData).forEach((fullName) => {
@@ -123,15 +125,23 @@ export function DownloadTransaction() {
                 bookType: "xlsx",
                 type: "array",
               });
-              const blob = new Blob([excelBuffer], {
-                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
-              });
+              // const blob = new Blob([excelBuffer], {
+              //   type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+              // });
 
               const nameDate = new Date();
               const fileDownloadName = `${fullName}_Transactions_List_${
                 nameDate.toISOString().split("T")[0]
               }.xlsx`;
-              saveAs(blob, fileDownloadName);
+              zip.file(fileDownloadName, excelBuffer);
+              // saveAs(blob, fileDownloadName);
+            });
+            // Generate and trigger download of the zip file
+            zip.generateAsync({ type: "blob" }).then((content) => {
+              const zipFileName = `Transactions_${
+                new Date().toISOString().split("T")[0]
+              }.zip`;
+              saveAs(content, zipFileName);
             });
           }
         });
