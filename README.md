@@ -16,7 +16,7 @@ The **Finance Management System** is a simplified ERP system designed to streaml
 - **Frontend**: React, TypeScript
 - **Backend**: Python, Django, PostgreSQL (Database)
 - **Deployment**: Nginx, Gunicorn
-  - **Hosting**: Linux Server
+- **Hosting**: Linux Server
 
 ## Deployment
 
