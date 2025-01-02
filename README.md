@@ -1,7 +1,7 @@
 # Finance Management System
 
 ## Overview
-The **Finance Management System** is a simplified ERP system designed to streamline monthly closing processes for corporate finance departments. It enables users to efficiently manage and track corporate card transactions and associated receipt images, ensuring smooth month-end closing operations.
+The **Finance Management System** is a system designed to streamline monthly closing processes for corporate finance departments. It enables users to efficiently manage and track corporate card transactions and associated receipt images, ensuring smooth month-end closing operations.
 
 ## Features
 - **Transaction Management**
